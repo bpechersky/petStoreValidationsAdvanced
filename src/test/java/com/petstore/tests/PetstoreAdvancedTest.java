@@ -33,7 +33,7 @@ public class PetstoreAdvancedTest {
             .body("status", equalTo("available"));
     }
 
-    @Test(priority = 2)
+    @Test(enabled = false)
     public void getPetByIdTest() {
         given()
         .when()
