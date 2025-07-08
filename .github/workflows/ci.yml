@@ -1,12 +1,10 @@
-name: Run Rest Assured Tests
+name: Run Rest Assured Tests with Allure
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   test:
@@ -25,9 +23,11 @@ jobs:
       - name: Build with Maven and run tests
         run: mvn clean test
 
-      - name: Upload TestNG Report (optional)
-        if: always()
+      - name: Generate Allure Report
+        run: mvn allure:report
+
+      - name: Upload Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: testng-report
-          path: target/surefire-reports
+          name: allure-report
+          path: target/site/allure-maven-plugin
