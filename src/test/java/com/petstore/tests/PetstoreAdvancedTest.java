@@ -33,6 +33,7 @@ public class PetstoreAdvancedTest {
             .body("status", equalTo("available"));
     }
 
+
     @Test(enabled = false)
     public void getPetByIdTest() {
         given()
