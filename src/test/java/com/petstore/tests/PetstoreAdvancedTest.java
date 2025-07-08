@@ -1,15 +1,17 @@
 package com.petstore.tests;
 
+import io.qameta.allure.testng.AllureTestNg;
 import io.restassured.RestAssured;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-
+@Listeners({AllureTestNg.class})
 public class PetstoreAdvancedTest {
 
     private final int testPetId = 999999;
